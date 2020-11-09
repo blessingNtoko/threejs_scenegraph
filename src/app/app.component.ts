@@ -54,14 +54,18 @@ export class AppComponent implements OnInit {
 
       this.renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(this.renderer.domElement);
+
       this.scene.background = new THREE.Color(0x000);
+
       this.camera.position.set(0, 50, 0);
       this.camera.up.set(0, 0, 1);
       this.camera.lookAt(0, 0, 0);
+
       this.controls.update();
-      // this.light.position.set(-1, 2, 4);
+
       this.scene.add(this.light);
       this.scene.add(this.solarSystem);
+
       this.objects.push(this.solarSystem);
 
       this.sunMesh.scale.set(5, 5, 5);
@@ -95,11 +99,9 @@ export class AppComponent implements OnInit {
       this.makeAxisGrid(this.moonOrbit, 'moonOrbit');
       this.makeAxisGrid(this.moonMesh, 'moonMesh');
 
-      // this.doIt();
-
       const animate = () => {
         this.objects.forEach(obj => {
-          // obj.rotation.y += .02;
+          obj.rotation.y += .02;
         });
 
         this.controls.update();
