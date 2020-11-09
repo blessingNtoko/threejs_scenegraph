@@ -89,17 +89,17 @@ export class AppComponent implements OnInit {
       }, false);
 
       this.makeAxisGrid(this.solarSystem, 'solarSystem', 25);
-      this.makeAxisGrid(this.sunMesh, 'sunMesh', 25);
-      this.makeAxisGrid(this.earthOrbit, 'earthOrbit', 25);
-      this.makeAxisGrid(this.earthMesh, 'earthMesh', 25);
-      this.makeAxisGrid(this.moonOrbit, 'moonOrbit', 25);
-      this.makeAxisGrid(this.moonMesh, 'moonMesh', 25);
+      this.makeAxisGrid(this.sunMesh, 'sunMesh');
+      this.makeAxisGrid(this.earthOrbit, 'earthOrbit');
+      this.makeAxisGrid(this.earthMesh, 'earthMesh');
+      this.makeAxisGrid(this.moonOrbit, 'moonOrbit');
+      this.makeAxisGrid(this.moonMesh, 'moonMesh');
 
       // this.doIt();
 
       const animate = () => {
         this.objects.forEach(obj => {
-          obj.rotation.y += .02;
+          // obj.rotation.y += .02;
         });
 
         this.controls.update();
@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private makeAxisGrid(node, label, units) {
+  private makeAxisGrid(node, label, units?) {
     const helper = new AxisGridHelper(node, units);
     this.gui.add(helper, 'visible').name(label);
   }
